@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:brick"
+    },
+    "C": {
+      "item": "minecraft:terracotta"
+    },
+    "S": {
+      "item": "minecraft:mourner_pottery_sherd"
+    }
+  },
+  "pattern": [
+    "#S#",
+    "#C#",
+    "###"
+  ],
+  "result": {
+    "count": 4,
+    "item": "minecraft:mourner_pottery_sherd"
+  },
+  "show_notification": true
+}
