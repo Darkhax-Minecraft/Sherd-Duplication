@@ -9,7 +9,7 @@
       "item": "minecraft:terracotta"
     },
     "S": {
-      "item": "minecraft:snout_pottery_sherd"
+      "item": "minecraft:snort_pottery_sherd"
     }
   },
   "pattern": [
@@ -19,7 +19,7 @@
   ],
   "result": {
     "count": 4,
-    "item": "minecraft:snout_pottery_sherd"
+    "item": "minecraft:snort_pottery_sherd"
   },
   "show_notification": true
 }
