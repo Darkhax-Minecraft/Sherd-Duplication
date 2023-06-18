@@ -1,5 +1,5 @@
-modLoader = "javafml"
-loaderVersion = "[45,)"
+modLoader = "lowcodefml"
+loaderVersion = "[46,)"
 license = "${mod_license}"
 issueTrackerURL = "${mod_issues}"
 
