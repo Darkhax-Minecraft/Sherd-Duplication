@@ -69,6 +69,7 @@ dependencies {
     compileOnly project(':common')
 
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
+    implementation fg.deobf("net.darkhax.bookshelf:Bookshelf-Forge-${project.ext.minecraft_version}:${project.ext.bookshelf_version}")
 }
 
 processResources {
@@ -182,6 +183,7 @@ task publishCurseForge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge)
     mainFile.changelogType = 'markdown'
     mainFile.changelog = project.ext.mod_changelog
     mainFile.addJavaVersion('Java 17')
+    mainFile.addRequirement('bookshelf')
 
     // Append Patreon Supporters
     def patreonInfo = project.findProperty('patreon')
