@@ -1,0 +1,12 @@
+{
+  "//": [
+    "This crafting recipe is defined in code. It is done this way to allow sherds",
+    "from mods to be used in the recipe as well. We previously defined a recipe  ",
+    "file for each sherd, however maintaining compatibility with the hundreds of ",
+    "mods that add sherds is not sustainable. If you want to modify this recipe, ",
+    "you can replace it entirely or use tags.                                    "
+  ],
+  "type": "sherdduplication:copy_sherd",
+  "category": "misc",
+  "group": "copy_sherd"
+}
