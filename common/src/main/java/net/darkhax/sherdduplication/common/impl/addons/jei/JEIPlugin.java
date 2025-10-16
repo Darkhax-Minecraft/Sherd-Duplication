@@ -47,8 +47,8 @@ public class JEIPlugin implements IModPlugin {
                 final ItemStack output = sherdInput.copyWithCount(4);
                 recipes.add(new RecipeHolder<>(recipeId, helpers.getVanillaRecipeFactory().createShapedRecipeBuilder(CraftingBookCategory.MISC, List.of(output))
                         .group(group)
-                        .define('a', Ingredient.of(SherdDuplication.INNER_INGREDIENT))
-                        .define('b', Ingredient.of(SherdDuplication.OUTER_INGREDIENT))
+                        .define('a', Ingredient.of(SherdDuplication.OUTER_INGREDIENT))
+                        .define('b', Ingredient.of(SherdDuplication.INNER_INGREDIENT))
                         .define('c', Ingredient.of(item.value()))
                         .pattern("aca")
                         .pattern("aba")
