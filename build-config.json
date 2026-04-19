@@ -1,0 +1,58 @@
+{
+  "mod": {
+    "name": "SherdDuplication",
+    "group": "net.darkhax.sherdduplication",
+    "authors": [
+      "Darkhax"
+    ],
+    "id": "sherdduplication",
+    "license": "LGPL 2.1",
+    "description": "Allows pottery sherds to be copied.",
+    "repo": "https://github.com/Darkhax-Minecraft/Sherd-Duplication",
+    "client": false
+  },
+  "curseforge": {
+    "slug": "sherd-duplication",
+    "id": "861561"
+  },
+  "modrinth": {
+    "slug": "sherd-duplication",
+    "id": "38Vc7azQ"
+  },
+  "dependencies": [
+    {
+      "name": "Bookshelf",
+      "type": "required",
+      "maven": {
+        "common": "net.darkhax.bookshelf:bookshelf-common-26.1.2:26.1.2.3",
+        "neoforge": "net.darkhax.bookshelf:bookshelf-neoforge-26.1.2:26.1.2.3",
+        "fabric": "net.darkhax.bookshelf:bookshelf-fabric-26.1.2:26.1.2.3"
+      },
+      "curseforge": {
+        "slug": "bookshelf",
+        "id": "228525"
+      },
+      "modrinth": {
+        "slug": "bookshelf-lib",
+        "id": "uy4Cnpcm"
+      }
+    },
+    {
+      "name": "JEI",
+      "type": "misc",
+      "maven": {
+        "common": "mezz.jei:jei-26.1.2-common:29.5.0.26",
+        "neoforge": "mezz.jei:jei-26.1.2-neoforge:29.5.0.26",
+        "fabric": "mezz.jei:jei-26.1.2-fabric:29.5.0.26"
+      },
+      "curseforge": {
+        "slug": "jei",
+        "id": "238222"
+      },
+      "modrinth": {
+        "slug": "jei",
+        "id": "u6dRKJwZ"
+      }
+    }
+  ]
+}

@@ -8,26 +8,31 @@ import mezz.jei.api.registration.IRecipeRegistration;
 import net.darkhax.sherdduplication.common.impl.SherdDuplication;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.crafting.CraftingBookCategory;
 import net.minecraft.world.item.crafting.CraftingRecipe;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeHolder;
+import net.minecraft.world.item.crafting.display.SlotDisplay;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.LinkedList;
 import java.util.List;
 
 @JeiPlugin
-public class JEIPlugin implements IModPlugin {
+public class SherdDuplicationJeiPlugin implements IModPlugin {
 
-    private static final ResourceLocation PLUGIN_ID = SherdDuplication.id("jei_plugin");
+    private static final Identifier PLUGIN_ID = SherdDuplication.id("jei_plugin");
 
+    @NotNull
     @Override
-    public @NotNull ResourceLocation getPluginUid() {
+    public Identifier getPluginUid() {
         return PLUGIN_ID;
     }
 
@@ -41,14 +46,14 @@ public class JEIPlugin implements IModPlugin {
         final String group = SherdDuplication.MOD_ID + ".jei.sherds";
         for (Holder<Item> item : BuiltInRegistries.ITEM.getTagOrEmpty(ItemTags.DECORATED_POT_SHERDS)) {
             if (!item.is(SherdDuplication.CANT_DUPLICATE)) {
-                final ResourceLocation itemId = item.unwrapKey().orElseThrow().location();
-                final ResourceLocation recipeId = SherdDuplication.id("jei." + itemId.getNamespace() + "." + itemId.getPath());
+                final Identifier itemId = item.unwrapKey().orElseThrow().identifier();
+                final Identifier recipeId = SherdDuplication.id("jei." + itemId.getNamespace() + "." + itemId.getPath());
                 final ItemStack sherdInput = item.value().getDefaultInstance();
                 final ItemStack output = sherdInput.copyWithCount(4);
-                recipes.add(new RecipeHolder<>(recipeId, helpers.getVanillaRecipeFactory().createShapedRecipeBuilder(CraftingBookCategory.MISC, List.of(output))
+                recipes.add(new RecipeHolder<>(ResourceKey.create(Registries.RECIPE, recipeId), helpers.getVanillaRecipeFactory().createShapedRecipeBuilder(CraftingBookCategory.MISC, new SlotDisplay.ItemStackSlotDisplay(new ItemStackTemplate(output.getItem(), output.count())))
                         .group(group)
-                        .define('a', Ingredient.of(SherdDuplication.OUTER_INGREDIENT))
-                        .define('b', Ingredient.of(SherdDuplication.INNER_INGREDIENT))
+                        .define('a', Ingredient.of(BuiltInRegistries.ITEM.getOrThrow(SherdDuplication.OUTER_INGREDIENT)))
+                        .define('b', Ingredient.of(BuiltInRegistries.ITEM.getOrThrow(SherdDuplication.INNER_INGREDIENT)))
                         .define('c', Ingredient.of(item.value()))
                         .pattern("aca")
                         .pattern("aba")

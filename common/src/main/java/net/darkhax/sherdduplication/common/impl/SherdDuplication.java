@@ -1,8 +1,7 @@
 package net.darkhax.sherdduplication.common.impl;
 
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.ItemTags;
+import net.minecraft.resources.Identifier;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import org.slf4j.Logger;
@@ -22,7 +21,7 @@ public class SherdDuplication {
         return TagKey.create(Registries.ITEM, id(path));
     }
 
-    public static ResourceLocation id(String path) {
-        return ResourceLocation.fromNamespaceAndPath(MOD_ID, path);
+    public static Identifier id(String path) {
+        return Identifier.fromNamespaceAndPath(MOD_ID, path);
     }
 }
